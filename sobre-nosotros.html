@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre nosotros — Talaia Espai Mediterrani</title>
+  <meta name="description" content="Conoce la historia de Talaia Espai Mediterrani. Pau García-Más y Kiko Jiménez, dos cocineros con fondo sólido que han iniciado una aventura culinaria en el paseo marítimo de Altea." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:       #f7f3ed;
+      --bg-alt:   #ede9e1;
+      --bg-blue:  #5590C8;
+      --dark:     #1c1a16;
+      --text:     #2e2b26;
+      --muted:    #8c8278;
+      --accent:   #b85c3a;
+      --sand:     #c9b89a;
+      --line:     rgba(28,26,22,.10);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans:  'DM Sans', system-ui, sans-serif;
+      --max-w: 1100px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ───────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(247,243,237,.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo img { height: 52px; width: auto; display: block; }
+    .nav-back {
+      font-size: .72rem; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--muted);
+      display: flex; align-items: center; gap: 8px;
+      transition: color .2s;
+    }
+    .nav-back::before { content: '←'; font-size: .9rem; }
+    .nav-back:hover { color: var(--accent); }
+    .nav-cta {
+      font-size: .72rem; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase;
+      border: 1px solid var(--accent); color: var(--accent);
+      padding: 9px 24px; transition: background .2s, color .2s;
+    }
+    .nav-cta:hover { background: var(--accent); color: #fff; }
+    @media (max-width: 600px) {
+      nav { padding: 10px 20px; }
+      .nav-cta { display: none; }
+      .nav-logo img { height: 40px; }
+    }
+
+    /* ── HERO ──────────────────────────────── */
+    .page-hero {
+      position: relative;
+      padding: 110px 32px 90px;
+      background: var(--bg);
+      overflow: hidden;
+      text-align: center;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 15% 85%, rgba(184,92,58,.06) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 15%, rgba(201,184,154,.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-branch-bg {
+      position: absolute;
+      bottom: -10%; right: -5%;
+      width: clamp(260px, 38vw, 500px);
+      opacity: .1;
+      pointer-events: none;
+      user-select: none;
+    }
+    .page-hero-label {
+      position: relative;
+      font-size: .67rem; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 18px;
+    }
+    .page-hero h1 {
+      position: relative;
+      font-family: var(--font-serif);
+      font-weight: 300;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      line-height: 1.05;
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+    .page-hero h1 em { font-style: italic; color: var(--accent); }
+    .page-hero p {
+      position: relative;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--muted);
+      max-width: 560px;
+      margin-inline: auto;
+    }
+
+    /* ── UTILS ─────────────────────────────── */
+    .container { max-width: var(--max-w); margin-inline: auto; padding-inline: 32px; }
+    .section-label {
+      font-size: .67rem; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      line-height: 1.15; color: var(--dark); margin-bottom: 24px;
+    }
+    .divider { width: 36px; height: 1px; background: var(--accent); opacity: .6; margin-bottom: 28px; }
+
+    .fi { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+    .fi.in { opacity: 1; transform: none; }
+    .fi.d1 { transition-delay: .12s; }
+    .fi.d2 { transition-delay: .24s; }
+    .fi.d3 { transition-delay: .36s; }
+
+    /* ── PRENSA ────────────────────────────── */
+    #prensa {
+      padding: 100px 0;
+      background: var(--bg);
+    }
+    .prensa-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .prensa-img-wrap { position: relative; }
+    .prensa-img {
+      width: 100%;
+      display: block;
+      box-shadow: 0 24px 64px rgba(28,26,22,.12);
+      position: relative; z-index: 2;
+    }
+    .prensa-img-deco {
+      position: absolute;
+      top: -16px; left: -16px;
+      width: 100%; height: 100%;
+      border: 1px solid var(--sand);
+      opacity: .45;
+      z-index: 1;
+    }
+    .prensa-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      line-height: 1.65;
+      color: var(--dark);
+      margin-bottom: 20px;
+      position: relative;
+      padding-left: 24px;
+    }
+    .prensa-quote::before {
+      content: '';
+      position: absolute; left: 0; top: 6px;
+      width: 3px; height: calc(100% - 12px);
+      background: var(--accent);
+      opacity: .5;
+    }
+    .prensa-source {
+      font-size: .7rem; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 28px;
+    }
+    .prensa-text p {
+      font-size: .93rem; color: var(--muted); margin-bottom: 16px; line-height: 1.75;
+    }
+    .prensa-text p strong { color: var(--text); font-weight: 400; }
+
+    @media (max-width: 768px) {
+      .prensa-grid { grid-template-columns: 1fr; gap: 40px; }
+      .prensa-img-deco { display: none; }
+    }
+
+    /* ── HISTORIA ──────────────────────────── */
+    #historia {
+      padding: 100px 0;
+      background: var(--bg-alt);
+    }
+    .historia-inner {
+      max-width: 780px;
+      margin-inline: auto;
+      text-align: center;
+    }
+    .historia-inner p {
+      font-size: .96rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+    .historia-inner p strong { color: var(--text); font-weight: 400; }
+    .historia-inner p.lead {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+      color: var(--dark);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    /* ── CHEFS ─────────────────────────────── */
+    #chefs {
+      padding: 100px 0;
+      background: var(--bg);
+    }
+    .chefs-header { text-align: center; margin-bottom: 72px; }
+    .chefs-header .divider { margin-inline: auto; }
+
+    .chefs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .chef-block {
+      padding: 56px 48px;
+      background: var(--bg-alt);
+      position: relative;
+      overflow: hidden;
+    }
+    .chef-block:first-child { background: var(--bg); }
+    .chef-num {
+      font-family: var(--font-serif);
+      font-size: 5rem;
+      font-weight: 300;
+      color: var(--accent);
+      opacity: .12;
+      position: absolute;
+      top: 20px; right: 28px;
+      line-height: 1;
+      user-select: none;
+    }
+    .chef-tag {
+      font-size: .62rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 14px;
+    }
+    .chef-block h3 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(1.7rem, 3vw, 2.2rem);
+      color: var(--dark);
+      margin-bottom: 6px;
+      line-height: 1.1;
+    }
+    .chef-origin {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: .95rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .chef-block p {
+      font-size: .9rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+    .chef-block p:last-child { margin-bottom: 0; }
+    .chef-block p strong { color: var(--text); font-weight: 400; }
+    .chef-trayectoria {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+    .chef-trayectoria-label {
+      font-size: .62rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 10px;
+    }
+    .chef-trayectoria ul {
+      list-style: none;
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .chef-trayectoria li {
+      font-size: .75rem;
+      color: var(--text);
+      border: 1px solid var(--line);
+      padding: 4px 12px;
+      background: var(--bg);
+    }
+
+    @media (max-width: 700px) {
+      .chefs-grid { grid-template-columns: 1fr; }
+      .chef-block { padding: 40px 28px; }
+    }
+
+    /* ── FILOSOFÍA ─────────────────────────── */
+    #filosofia {
+      padding: 100px 0;
+      background: var(--bg-blue);
+    }
+    .filosofia-inner { max-width: 800px; margin-inline: auto; text-align: center; }
+    .filosofia-inner .section-label { color: rgba(255,255,255,.75); }
+    .filosofia-inner .section-title { color: #fff; }
+    .filosofia-inner .divider { margin-inline: auto; background: rgba(255,255,255,.6); opacity: 1; }
+    .filosofia-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 56px;
+    }
+    .pilar {
+      padding: 40px 32px;
+      background: rgba(255,255,255,.2);
+      text-align: center;
+      transition: background .3s;
+    }
+    .pilar:hover { background: rgba(255,255,255,.32); }
+    .pilar-icon { font-size: 1.8rem; margin-bottom: 16px; }
+    .pilar h4 {
+      font-family: var(--font-serif);
+      font-size: 1.15rem; font-weight: 400;
+      color: #fff; margin-bottom: 10px;
+    }
+    .pilar p { font-size: .82rem; color: rgba(255,255,255,.75); line-height: 1.6; }
+
+    @media (max-width: 600px) {
+      .filosofia-pillars { grid-template-columns: 1fr; }
+    }
+
+    /* ── RECONOCIMIENTOS ───────────────────── */
+    #reconocimientos {
+      padding: 100px 0;
+      background: var(--bg-alt);
+    }
+    .recono-inner { max-width: 860px; margin-inline: auto; }
+    .recono-inner .section-title { text-align: center; }
+    .recono-inner .section-label { text-align: center; display: block; }
+    .recono-inner .divider { margin-inline: auto; }
+    .awards-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 52px;
+    }
+    .award-item {
+      padding: 36px 28px;
+      background: var(--bg);
+      text-align: center;
+      border: 1px solid var(--line);
+      transition: border-color .3s;
+    }
+    .award-item:hover { border-color: var(--accent); }
+    .award-item .icon { font-size: 2rem; margin-bottom: 14px; }
+    .award-item h4 {
+      font-family: var(--font-serif);
+      font-size: 1rem; font-weight: 400;
+      color: var(--dark); margin-bottom: 6px;
+    }
+    .award-item p { font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+
+    @media (max-width: 600px) {
+      .awards-strip { grid-template-columns: 1fr; }
+    }
+
+    /* ── CTA FINAL ─────────────────────────── */
+    #cta-final {
+      padding: 100px 32px;
+      background: var(--bg);
+      text-align: center;
+    }
+    #cta-final h2 {
+      font-family: var(--font-serif);
+      font-weight: 300;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    #cta-final h2 em { font-style: italic; color: var(--accent); }
+    #cta-final p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+    .cta-row {
+      display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: .72rem; font-weight: 500;
+      letter-spacing: .18em; text-transform: uppercase;
+      background: var(--accent); color: #fff;
+      padding: 16px 44px;
+      transition: background .25s, transform .2s;
+    }
+    .btn-primary:hover { background: #a04e30; transform: translateY(-2px); }
+    .btn-outline {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: .72rem; font-weight: 500;
+      letter-spacing: .18em; text-transform: uppercase;
+      border: 1px solid var(--dark); color: var(--dark);
+      padding: 16px 44px;
+      transition: background .25s, color .25s, transform .2s;
+    }
+    .btn-outline:hover { background: var(--dark); color: #fff; transform: translateY(-2px); }
+
+    /* ── FOOTER ────────────────────────────── */
+    footer {
+      background: var(--bg-blue);
+      border-top: 1px solid rgba(255,255,255,.2);
+      padding: 52px 32px 36px;
+      text-align: center;
+    }
+    .footer-logo img {
+      height: 48px; width: auto; display: block;
+      margin-inline: auto; margin-bottom: 10px;
+      filter: invert(1) brightness(1.2); opacity: .9;
+    }
+    footer p { font-size: .7rem; color: rgba(255,255,255,.5); line-height: 1.9; }
+    footer a { color: rgba(255,255,255,.6); transition: color .2s; }
+    footer a:hover { color: #fff; }
+
+    /* Canto fino en texto blanco sobre fondo azul */
+    #filosofia .section-title,
+    #filosofia .pilar h4,
+    #filosofia .pilar p,
+    footer p,
+    footer a {
+      text-shadow:
+        1px  1px 0 rgba(0,0,0,.32),
+       -1px -1px 0 rgba(0,0,0,.32),
+        1px -1px 0 rgba(0,0,0,.32),
+       -1px  1px 0 rgba(0,0,0,.32),
+        0    1px 0 rgba(0,0,0,.28),
+        0   -1px 0 rgba(0,0,0,.28),
+        1px  0   0 rgba(0,0,0,.28),
+       -1px  0   0 rgba(0,0,0,.28),
+        0    0   4px rgba(0,0,0,.15);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-back">Inicio</a>
+    <a href="index.html" class="nav-logo">
+      <img src="photo_6016959138719534482_y.png" alt="Talaia" />
+    </a>
+    <a href="https://www.covermanager.com" target="_blank" rel="noopener" class="nav-cta">Reservar mesa</a>
+  </nav>
+
+  <!-- HERO -->
+  <header class="page-hero">
+    <img src="photo_6019210938533219379_y-removebg-preview.png" class="hero-branch-bg" alt="" aria-hidden="true" />
+    <p class="page-hero-label">Talaia Espai Mediterrani · Altea</p>
+    <h1>Una <em>aventura</em><br />culinaria frente al mar</h1>
+    <p>La historia de dos cocineros, una filosofía y un rincón privilegiado en el paseo marítimo de Altea</p>
+  </header>
+
+  <!-- PRENSA -->
+  <section id="prensa">
+    <div class="container">
+      <div class="prensa-grid">
+
+        <div class="prensa-img-wrap fi">
+          <img src="photo_6016959138719534488_y.jpg" class="prensa-img" alt="Reseña de Talaia en la Guía Almanaque — Fusión Contemporánea" />
+          <div class="prensa-img-deco"></div>
+        </div>
+
+        <div>
+          <p class="section-label fi">Como nos ven</p>
+          <h2 class="section-title fi d1">«Tapeo de autor.<br />Fondo sólido.»</h2>
+          <div class="divider fi d1"></div>
+
+          <blockquote class="prensa-quote fi d2">
+            "Ambos van sobrados de técnica actual y concepto culinario. Tienen que ir a más porque su fondo es sólido."
+          </blockquote>
+          <p class="prensa-source fi d2">Juan Lagardera · Guía Almanaque — Fusión Contemporánea</p>
+
+          <div class="prensa-text">
+            <p class="fi d2">
+              La <strong>Guía Almanaque</strong>, referencia de la crítica gastronómica en España, dedicó su sección de fusión contemporánea a Talaia desde sus primeros meses de vida. El crítico Juan Lagardera destacó la <strong>solidez técnica</strong> de Pau García-Más y Kiko Jiménez, su dominio del concepto culinario y el potencial de una propuesta que mezcla tradición alicantina con influencias globales.
+            </p>
+            <p class="fi d3">
+              Recetas con presencia, ingredientes variopintos y una <strong>cocina apta para el tapeo contemporáneo</strong> muy salseado. Una valoración que desde entonces no ha hecho más que confirmarse con el respaldo de comensales y guías especializadas.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORIA -->
+  <section id="historia">
+    <div class="container">
+      <div class="historia-inner">
+        <p class="section-label fi">Nuestra historia</p>
+        <h2 class="section-title fi d1">Todo empezó<br />frente al puerto</h2>
+        <div class="divider fi d1"></div>
+
+        <p class="lead fi d2">
+          Talaia nació de la decisión de dos cocineros de volver a lo esencial: el producto honesto, el territorio y el placer de compartir una buena mesa.
+        </p>
+        <p class="fi d2">
+          <strong>Pau García-Más</strong>, nacido en Sella (Alicante), creció entre los sabores de la Marina Baixa. Formado en algunos de los mejores restaurantes del país, llegó un momento en que sintió que todo ese bagaje debía tener un destino propio, con identidad y sin intermediarios. Ese destino era Altea, el pueblo que lo vio crecer cerca del mar.
+        </p>
+        <p class="fi d3">
+          En el camino encontró a <strong>Kiko Jiménez</strong>, cocinero malagueño con recorrido en Ciudad de México y una visión mestiza que encajaba perfectamente con la filosofía que Pau llevaba tiempo madurando. Juntos decidieron abrir en el <strong>Carrer Sant Pere</strong>, a pasos del puerto pesquero, un espacio donde la alta gastronomía se pusiera al servicio de la informalidad.
+        </p>
+        <p class="fi d3">
+          No querían un restaurante de mantel largo. Querían un lugar cercano, vivo, donde el comensal pudiera sentir la energía de la cocina y la honestidad del producto sin formalismos. <strong>Talaia Espai Mediterrani</strong> abrió sus puertas con esa convicción, y desde el primer día la respuesta fue clara: la gente volvía.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHEFS -->
+  <section id="chefs">
+    <div class="container">
+      <div class="chefs-header">
+        <p class="section-label fi">Los cocineros</p>
+        <h2 class="section-title fi d1">Dos trayectorias,<br />una cocina</h2>
+        <div class="divider fi d1"></div>
+      </div>
+
+      <div class="chefs-grid">
+
+        <div class="chef-block fi">
+          <span class="chef-num">01</span>
+          <p class="chef-tag">Chef & Propietario</p>
+          <h3>Pau García-Más</h3>
+          <p class="chef-origin">Sella, Alicante — Marina Baixa</p>
+          <p>
+            Pau creció en Sella, un pequeño pueblo de interior alicantino, con los pies en la tierra y los ojos en el mar. Su formación lo llevó por algunos de los restaurantes más exigentes del panorama gastronómico español y europeo, donde absorbió técnica, rigor y sensibilidad por el producto.
+          </p>
+          <p>
+            Fue <strong>segundo de cocina en BonAmb</strong> (dos estrellas Michelin), experiencia que marcó profundamente su comprensión de la excelencia y la precisión. Hoy en Talaia aplica todo ese aprendizaje con una libertad creativa que solo da el proyecto propio.
+          </p>
+          <div class="chef-trayectoria">
+            <p class="chef-trayectoria-label">Trayectoria</p>
+            <ul>
+              <li>Azurmendi</li>
+              <li>BonAmb ★★</li>
+              <li>Ricard Camarena ★★</li>
+              <li>Martín Berasategui ★★★</li>
+              <li>Bardal ★★</li>
+              <li>Cobo Evolución ★</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="chef-block fi d1">
+          <span class="chef-num">02</span>
+          <p class="chef-tag">Chef</p>
+          <h3>Kiko Jiménez</h3>
+          <p class="chef-origin">Málaga — Andalucía</p>
+          <p>
+            Kiko llegó a Altea con las maletas llenas de influencias: el Mediterráneo andaluz de su infancia, las técnicas aprendidas en BonAmb y la cocina mestiza que descubrió durante su etapa en <strong>Ciudad de México</strong>. Esa mezcla es precisamente lo que aporta a Talaia: una visión sin fronteras que enriquece la propuesta sin perder la raíz.
+          </p>
+          <p>
+            Sus años en México le abrieron la mirada hacia los fermentados, las especias, los chiles y las combinaciones que hoy aparecen en platos como el aguachile de maíz. Una presencia que convierte a Talaia en algo más que cocina mediterránea: en un diálogo entre culturas.
+          </p>
+          <div class="chef-trayectoria">
+            <p class="chef-trayectoria-label">Trayectoria</p>
+            <ul>
+              <li>BonAmb ★★</li>
+              <li>Ciudad de México</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FILOSOFÍA -->
+  <section id="filosofia">
+    <div class="container">
+      <div class="filosofia-inner">
+        <p class="section-label fi">Nuestra filosofía</p>
+        <h2 class="section-title fi d1">Cocina en homenaje<br />al territorio</h2>
+        <div class="divider fi d1"></div>
+        <p class="fi d2" style="color:rgba(255,255,255,.8);font-family:var(--font-serif);font-style:italic;font-size:1.05rem;line-height:1.65;">
+          Creemos que la mejor cocina es la que escucha al entorno. La que respeta el calendario, confía en el agricultor y pescador de proximidad, y aplica la técnica solo cuando suma, nunca cuando impone.
+        </p>
+
+        <div class="filosofia-pillars">
+          <div class="pilar fi">
+            <div class="pilar-icon">🌿</div>
+            <h4>Producto local</h4>
+            <p>Pescadores de Altea, huertanos de la Marina y productores artesanos de la comarca. El territorio en el plato.</p>
+          </div>
+          <div class="pilar fi d1">
+            <div class="pilar-icon">📅</div>
+            <h4>Temporada</h4>
+            <p>La carta cambia con el mercado. Lo que no está en su momento, no está en la mesa. Sin excepciones.</p>
+          </div>
+          <div class="pilar fi d2">
+            <div class="pilar-icon">🔥</div>
+            <h4>Técnica al servicio</h4>
+            <p>Alta gastronomía aplicada con informalidad. La técnica existe para que el ingrediente brille, no para demostrarse a sí misma.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECONOCIMIENTOS -->
+  <section id="reconocimientos">
+    <div class="container">
+      <div class="recono-inner">
+        <p class="section-label fi">Reconocimientos</p>
+        <h2 class="section-title fi d1">El respaldo de quienes<br />nos conocen</h2>
+        <div class="divider fi d1"></div>
+
+        <div class="awards-strip">
+          <div class="award-item fi">
+            <div class="icon">🏅</div>
+            <h4>Guía Repsol</h4>
+            <p>Restaurante recomendado</p>
+          </div>
+          <div class="award-item fi d1">
+            <div class="icon">🏆</div>
+            <h4>Travellers' Choice</h4>
+            <p>TripAdvisor 2024</p>
+          </div>
+          <div class="award-item fi d2">
+            <div class="icon">⭐</div>
+            <h4>5 estrellas Google</h4>
+            <p>Valoración media máxima</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="cta-final">
+    <h2>Ven a <em>conocernos</em></h2>
+    <p>La mejor manera de entender Talaia es sentarse a la mesa.</p>
+    <div class="cta-row">
+      <a href="https://www.covermanager.com" target="_blank" rel="noopener" class="btn-primary">Reservar mesa</a>
+      <a href="menu.html" class="btn-outline">Ver la carta</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <img src="photo_6016959138719534482_y.png" alt="Talaia" />
+    </div>
+    <p>Carrer Sant Pere, 35, local 3 · Altea, Alicante</p>
+    <p><a href="tel:+34623300540">+34 623 30 05 40</a> · <a href="https://instagram.com/restaurantetalaia" target="_blank">@restaurantetalaia</a></p>
+    <p style="margin-top:12px;font-size:.6rem;opacity:.4;">© 2024 Talaia Espai Mediterrani</p>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fi').forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>

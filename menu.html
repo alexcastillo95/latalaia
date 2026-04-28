@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menú — Talaia Espai Mediterrani</title>
+  <meta name="description" content="Menú completo de Talaia Espai Mediterrani. Cocina mediterránea creativa de autor en Altea, Alicante." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:       #f7f3ed;
+      --bg-alt:   #ede9e1;
+      --bg-dark:  #1e1c18;
+      --dark:     #1c1a16;
+      --text:     #2e2b26;
+      --muted:    #8c8278;
+      --accent:   #b85c3a;
+      --line:     rgba(28,26,22,.10);
+      --sand:     #c9b89a;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans:  'DM Sans', system-ui, sans-serif;
+      --max-w: 860px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ───────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(247,243,237,.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo img { height: 52px; width: auto; display: block; }
+    .nav-back {
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex; align-items: center; gap: 8px;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: var(--accent); }
+    .nav-back::before { content: '←'; font-size: .9rem; }
+    .nav-cta {
+      font-size: .72rem; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 9px 24px;
+      transition: background .2s, color .2s;
+    }
+    .nav-cta:hover { background: var(--accent); color: #fff; }
+    @media (max-width: 600px) {
+      nav { padding: 10px 20px; }
+      .nav-cta { display: none; }
+      .nav-logo img { height: 40px; }
+    }
+
+    /* ── HEADER ────────────────────────────── */
+    .menu-header {
+      background: var(--bg-dark);
+      padding: 80px 32px 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .menu-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 25% 75%, rgba(184,92,58,.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 75% 25%, rgba(201,184,154,.07) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .menu-header-label {
+      font-size: .65rem; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--sand); margin-bottom: 16px; position: relative;
+    }
+    .menu-header h1 {
+      font-family: var(--font-serif);
+      font-weight: 300;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      color: #f0ebe2;
+      line-height: 1.1;
+      margin-bottom: 14px;
+      position: relative;
+    }
+    .menu-header h1 em { font-style: italic; color: var(--sand); }
+    .menu-header p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.4);
+      position: relative;
+    }
+
+    /* ── MENU BODY ─────────────────────────── */
+    main {
+      max-width: var(--max-w);
+      margin-inline: auto;
+      padding: 0 32px 100px;
+    }
+
+    /* Sección de categoría */
+    .menu-section {
+      padding-top: 72px;
+      border-top: 1px solid var(--line);
+      margin-top: 72px;
+    }
+    .menu-section:first-child { margin-top: 0; border-top: none; }
+
+    .menu-section-header {
+      display: flex; align-items: baseline; gap: 20px;
+      margin-bottom: 40px;
+    }
+    .menu-section-num {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--accent);
+      opacity: .25;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .menu-section-title {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      color: var(--dark);
+      line-height: 1.1;
+    }
+
+    /* Item de plato */
+    .menu-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: baseline;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+      transition: padding-left .25s;
+    }
+    .menu-item:last-child { border-bottom: none; }
+    .menu-item:hover { padding-left: 8px; }
+
+    .menu-item-left h3 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: 1.12rem;
+      color: var(--dark);
+      margin-bottom: 4px;
+      transition: color .2s;
+    }
+    .menu-item:hover .menu-item-left h3 { color: var(--accent); }
+
+    .menu-item-left p {
+      font-size: .8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .menu-item-tag {
+      display: inline-block;
+      font-size: .58rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      background: rgba(184,92,58,.09);
+      color: var(--accent);
+      border: 1px solid rgba(184,92,58,.2);
+      padding: 2px 8px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    /* Separador especial */
+    .menu-note {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: .9rem;
+      color: var(--muted);
+      text-align: center;
+      padding: 28px 0 0;
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+    }
+
+    /* Alérgenos */
+    .allergens-bar {
+      background: var(--bg-alt);
+      border: 1px solid var(--line);
+      padding: 24px 32px;
+      margin: 72px 0 0;
+      display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center;
+    }
+    .allergens-bar strong {
+      font-size: .68rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--dark);
+      font-weight: 500;
+    }
+    .allergen-item {
+      font-size: .78rem;
+      color: var(--muted);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .allergen-item span { font-size: .7rem; }
+
+    /* CTA reserva */
+    .menu-cta-section {
+      text-align: center;
+      padding: 80px 0 0;
+    }
+    .menu-cta-section p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .btn-reserva {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      background: var(--accent);
+      color: #fff;
+      padding: 16px 48px;
+      transition: background .25s, transform .2s;
+    }
+    .btn-reserva:hover { background: #a04e30; transform: translateY(-2px); }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      padding: 40px 32px;
+      text-align: center;
+    }
+    .footer-logo img { height: 44px; width: auto; filter: invert(1); opacity: .7; margin-inline: auto; margin-bottom: 12px; }
+    footer p { font-size: .7rem; color: rgba(255,255,255,.28); line-height: 1.9; }
+    footer a { color: rgba(255,255,255,.35); transition: color .2s; }
+    footer a:hover { color: var(--sand); }
+
+    /* Fade in */
+    .fi { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
+    .fi.in { opacity: 1; transform: none; }
+    .fi.d1 { transition-delay: .1s; }
+    .fi.d2 { transition-delay: .2s; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-back">Volver</a>
+    <a href="index.html" class="nav-logo">
+      <img src="photo_6016959138719534482_y.png" alt="Talaia" />
+    </a>
+    <a href="https://www.covermanager.com" target="_blank" rel="noopener" class="nav-cta">Reservar</a>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="menu-header">
+    <p class="menu-header-label">Talaia Espai Mediterrani · Altea</p>
+    <h1>Nuestra<br /><em>Carta</em></h1>
+    <p>Producto local · Temporada · Cocina creativa de autor</p>
+  </header>
+
+  <!-- MENÚ -->
+  <main>
+
+    <!-- SNACKS Y APERITIVOS -->
+    <section class="menu-section fi">
+      <div class="menu-section-header">
+        <span class="menu-section-num">01</span>
+        <h2 class="menu-section-title">Snacks &amp; Aperitivos</h2>
+      </div>
+
+      <div class="menu-item fi">
+        <div class="menu-item-left">
+          <h3>Pan de masa madre con mantequilla de hierbas</h3>
+          <p>Masa madre de trigo · mantequilla emulsionada · hierbas del jardín</p>
+        </div>
+      </div>
+      <div class="menu-item fi d1">
+        <div class="menu-item-left">
+          <h3>Aceitunas marinadas al momento</h3>
+          <p>Variedad arbequina · cítricos · tomillo · romero</p>
+        </div>
+      </div>
+      <div class="menu-item fi d2">
+        <div class="menu-item-left">
+          <h3>Croquetas de quisquilla y gamba blanca <span class="menu-item-tag">Firma</span></h3>
+          <p>Quisquilla fresca · gamba blanca de Dénia · bechamel al pil-pil · pimentón de la Vera</p>
+        </div>
+      </div>
+      <div class="menu-item fi">
+        <div class="menu-item-left">
+          <h3>Boquerones fritos <span class="menu-item-tag">Temporada</span></h3>
+          <p>Boquerón fresco · harina de garbanzo · alioli de azafrán · limón de Callosa</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FRÍOS -->
+    <section class="menu-section fi">
+      <div class="menu-section-header">
+        <span class="menu-section-num">02</span>
+        <h2 class="menu-section-title">Del Mar · Fríos</h2>
+      </div>
+
+      <div class="menu-item fi">
+        <div class="menu-item-left">
+          <h3>Aguachile de maíz con lechola en semisalazón <span class="menu-item-tag">Chef</span></h3>
+          <p>Lechola en semisalazón · cremoso de calabaza, coco y naranja · maíz tatemado · chile serrano · cilantro</p>
+        </div>
+      </div>
+      <div class="menu-item fi d1">
+        <div class="menu-item-left">
+          <h3>Ajoblanco de almendra marcona <span class="menu-item-tag">Firma</span></h3>
+          <p>Almendra marcona · ventresca de atún · uva moscatel · aceite de ajo negro · vinagre de jerez</p>
+        </div>
+      </div>
+      <div class="menu-item fi d2">
+        <div class="menu-item-left">
+          <h3>Tartar de atún rojo con ponzu de yuzu</h3>
+          <p>Atún rojo de almadraba · ponzu de yuzu · aguacate · sésamo negro · crujiente de arroz</p>
+        </div>
+      </div>
+      <div class="menu-item fi">
+        <div class="menu-item-left">
+          <h3>Ensaladilla de la casa <span class="menu-item-tag">Firma</span></h3>
+          <p>Patata cocida · bonito del norte · mayonesa casera · huevas de trucha · cebollino</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VERDURAS -->
+    <section class="menu-section fi">
+      <div class="menu-section-header">
+        <span class="menu-section-num">03</span>
+        <h2 class="menu-section-title">De la Huerta</h2>
+      </div>
+
+      <div class="menu-item fi">
+        <div class="menu-item-left">
+          <h3>Berenjena a la llama <span class="menu-item-tag">Firma</span></h3>
+          <p>Berenjena ahumada · sopa de parmesano 36 meses · aceite de hierbas · tierra de aceitunas negras · flores</p>
+        </div>
+      </div>
+      <div class="menu-item fi d1">
+        <div class="menu-item-left">
+          <h3>Alcachofa confitada con yema curada</h3>
+          <p>Alcachofa de temporada · yema curada en sal · garum de atún · ralladura de limón</p>
+        </div>
+      </div>
+      <div class="menu-item fi d2">
+        <div class="menu-item-left">
+          <h3>Calabaza rustida con miso y avellana</h3>
+          <p>Calabaza de Confrides · miso blanco · avellana tostada · aceite de perejil · jengibre</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAR Y MONTAÑA -->
+    <section class="menu-section fi">
+      <div class="menu-section-header">
+        <span class="menu-section-num">04</span>
+        <h2 class="menu-section-title">Mar &amp; Montaña</h2>
+      </div>
+
+      <div class="menu-item fi">
+        <div class="menu-item-left">
+          <h3>Calamar relleno de longaniza de Confrides <span class="menu-item-tag">Firma</span></h3>
+          <p>Calamar de anzuelo · longaniza artesana de Confrides · tinta de calamar · arroz de montaña · all i oli negro</p>
+        </div>
+      </div>
+      <div class="menu-item fi d1">
+        <div class="menu-item-left">
+          <h3>Arroz meloso de galera y anguila ahumada</h3>
+          <p>Galera del Mediterráneo · anguila ahumada local · concentrado de marisco · aceite de hinojo</p>
+        </div>
+      </div>
+      <div class="menu-item fi d2">
+        <div class="menu-item-left">
+          <h3>Gamba roja de Dénia a la brasa <span class="menu-item-tag">Temporada</span></h3>
+          <p>Gamba roja entera · mantequilla noisette · flor de sal · limón confitado · hierbas del litoral</p>
+        </div>
+      </div>
+      <div class="menu-item fi">
+        <div class="menu-item-left">
+          <h3>Presa ibérica con dashi de algas y boniato</h3>
+          <p>Presa ibérica madurada · dashi de kombu · boniato asado · rábano encurtido · shichimi</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- POSTRES -->
+    <section class="menu-section fi">
+      <div class="menu-section-header">
+        <span class="menu-section-num">05</span>
+        <h2 class="menu-section-title">Postres</h2>
+      </div>
+
+      <div class="menu-item fi">
+        <div class="menu-item-left">
+          <h3>Citrus de Callosa <span class="menu-item-tag">Firma</span></h3>
+          <p>Níspero · naranja sanguina · mandarina · sorbete de yuzu · miel de azahar de la Marina</p>
+        </div>
+      </div>
+      <div class="menu-item fi d1">
+        <div class="menu-item-left">
+          <h3>Chocolate de origen con aceite y sal</h3>
+          <p>Cobertura 72% · crema de cacao · aceite de oliva arbequina · sal maldon · nibs tostados</p>
+        </div>
+      </div>
+      <div class="menu-item fi d2">
+        <div class="menu-item-left">
+          <h3>Tarta de queso madurado a baja temperatura</h3>
+          <p>Queso curado local · miel de montaña · membrillo · nuez confitada · galleta de almendra</p>
+        </div>
+      </div>
+      <div class="menu-item fi">
+        <div class="menu-item-left">
+          <h3>Helado artesano del día</h3>
+          <p>Elaboración propia · fruta de temporada · texturas crujientes</p>
+        </div>
+      </div>
+
+      <p class="menu-note">La carta varía en función del mercado y la temporada.<br />Pregunta a nuestro equipo por las sugerencias del día.</p>
+    </section>
+
+    <!-- ALÉRGENOS -->
+    <div class="allergens-bar fi">
+      <strong>Alérgenos</strong>
+      <span class="allergen-item"><span>🥜</span> Frutos secos</span>
+      <span class="allergen-item"><span>🌾</span> Gluten</span>
+      <span class="allergen-item"><span>🥚</span> Huevo</span>
+      <span class="allergen-item"><span>🥛</span> Lácteos</span>
+      <span class="allergen-item"><span>🐟</span> Pescado</span>
+      <span class="allergen-item"><span>🦐</span> Crustáceos</span>
+      <span class="allergen-item">Consulta alérgenos al personal</span>
+    </div>
+
+    <!-- CTA -->
+    <div class="menu-cta-section fi">
+      <p>¿Listo para vivir la experiencia Talaia?</p>
+      <a href="https://www.covermanager.com" target="_blank" rel="noopener" class="btn-reserva">Reservar mesa · +34 623 30 05 40</a>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <img src="photo_6016959138719534482_y.png" alt="Talaia" />
+    </div>
+    <p>Carrer Sant Pere, 35, local 3 · Altea, Alicante</p>
+    <p><a href="tel:+34623300540">+34 623 30 05 40</a> · <a href="https://instagram.com/restaurantetalaia" target="_blank">@restaurantetalaia</a></p>
+    <p style="margin-top:12px;font-size:.6rem;opacity:.4;">© 2024 Talaia Espai Mediterrani</p>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fi').forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>
