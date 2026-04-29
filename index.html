@@ -563,77 +563,74 @@
     ════════════════════════════════════════════════════ */
     #reconocimientos {
       padding: 100px 0;
-      background: var(--bg-dark);
-      color: #fff;
+      background: var(--bg-alt);
     }
     .recono-header { text-align: center; margin-bottom: 60px; }
-    .recono-header .section-label { color: rgba(255,255,255,.75); }
-    .recono-header .section-title { color: #fff; }
-    .recono-header .divider { margin-inline: auto; background: rgba(255,255,255,.6); opacity: 1; }
+    .recono-header .divider { margin-inline: auto; }
 
     .awards-row {
-      display: flex; justify-content: center; gap: 2px;
-      flex-wrap: wrap; margin-bottom: 72px;
-      background: rgba(255,255,255,.25);
+      display: flex; justify-content: center; flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 80px;
     }
     .award-badge {
       flex: 1; min-width: 180px;
-      display: flex; flex-direction: column; align-items: center; gap: 12px;
-      padding: 40px 32px;
+      display: flex; flex-direction: column; align-items: center; gap: 14px;
+      padding: 52px 32px;
       text-align: center;
-      border-right: 1px solid rgba(255,255,255,.25);
-      transition: background .3s;
+      border-right: 1px solid var(--line);
+      text-decoration: none; color: inherit;
     }
     .award-badge:last-child { border-right: none; }
-    .award-badge:hover { background: rgba(255,255,255,.3); }
-    .award-icon { display: flex; align-items: center; justify-content: center; height: 36px; }
-    .award-icon svg { width: 30px; height: 30px; stroke: rgba(255,255,255,.85); fill: none; }
-    .award-badge a { color: inherit; text-decoration: none; display: contents; }
+    .award-icon { display: flex; align-items: center; justify-content: center; height: 32px; }
+    .award-icon svg { width: 26px; height: 26px; stroke: var(--accent); fill: none; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
     .award-badge h4 {
       font-family: var(--font-serif);
-      font-size: 1.12rem;
-      font-weight: 600;
-      color: #fff;
+      font-size: 1.15rem; font-weight: 400;
+      color: var(--dark);
     }
-    .award-badge p { font-size: .74rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.75); }
-    .stars { color: #fff; font-size: .92rem; letter-spacing: 3px; }
+    .award-badge p { font-size: .68rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+    .stars { color: var(--accent); font-size: .85rem; letter-spacing: 3px; }
 
     .reviews-grid {
       display: grid;
       grid-template-columns: repeat(3,1fr);
-      gap: 2px;
     }
     .review-card {
-      padding: 40px 36px;
-      background: rgba(255,255,255,.2);
-      border: 1px solid rgba(255,255,255,.2);
+      padding: 48px 40px;
+      border-right: 1px solid var(--line);
       transition: background .3s;
     }
-    .review-card:hover { background: rgba(255,255,255,.32); }
+    .review-card:last-child { border-right: none; }
+    .review-card:hover { background: var(--bg); }
     .review-open {
       font-family: var(--font-serif);
-      font-size: 3.5rem;
-      color: #fff;
-      line-height: .5;
+      font-size: 5rem;
+      color: var(--accent);
+      opacity: .25;
+      line-height: .6;
       display: block;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
     .review-text {
       font-family: var(--font-serif);
       font-style: italic;
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: rgba(255,255,255,.9);
-      margin-bottom: 24px;
+      font-size: 1.08rem;
+      line-height: 1.75;
+      color: var(--dark);
+      margin-bottom: 28px;
     }
-    .review-author { font-size: .74rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #fff; }
-    .review-source { font-size: .7rem; color: rgba(255,255,255,.55); margin-top: 2px; }
+    .review-author { font-size: .68rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--dark); }
+    .review-source { font-size: .65rem; color: var(--muted); margin-top: 5px; }
 
     @media (max-width: 768px) {
       .reviews-grid { grid-template-columns: 1fr; }
       .awards-row { flex-direction: column; }
-      .award-badge { border-right: none; border-bottom: 1px solid rgba(28,26,22,.08); }
+      .award-badge { border-right: none; border-bottom: 1px solid var(--line); }
       .award-badge:last-child { border-bottom: none; }
+      .review-card { border-right: none; border-bottom: 1px solid var(--line); }
+      .review-card:last-child { border-bottom: none; }
     }
 
     /* ════════════════════════════════════════════════════
@@ -998,21 +995,27 @@
 
       <div class="awards-row fi d2">
         <div class="award-badge">
-          <div class="award-icon">🏅</div>
+          <div class="award-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg>
+          </div>
           <h4>Guía Repsol</h4>
           <p>Restaurante recomendado</p>
         </div>
         <div class="award-badge">
-          <div class="award-icon">🏆</div>
+          <div class="award-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
           <h4>Travellers' Choice</h4>
           <p>TripAdvisor 2024</p>
         </div>
-        <div class="award-badge">
-          <div class="award-icon">⭐</div>
+        <a class="award-badge" href="https://www.google.com/maps/search/Talaia+Espai+Mediterrani+Altea" target="_blank" rel="noopener">
+          <div class="award-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
           <h4>5 estrellas Google</h4>
           <div class="stars">★★★★★</div>
-          <p>Google Reviews</p>
-        </div>
+          <p>Ver reseñas</p>
+        </a>
       </div>
 
       <div class="reviews-grid">
