@@ -307,12 +307,12 @@
     /* ── FILOSOFÍA ─────────────────────────── */
     #filosofia {
       padding: 100px 0;
-      background: var(--bg-blue);
+      background: var(--bg-alt);
     }
     .filosofia-inner { max-width: 800px; margin-inline: auto; text-align: center; }
-    .filosofia-inner .section-label { color: rgba(255,255,255,.75); }
-    .filosofia-inner .section-title { color: #fff; }
-    .filosofia-inner .divider { margin-inline: auto; background: rgba(255,255,255,.6); opacity: 1; }
+    .filosofia-inner .section-label { color: var(--accent); }
+    .filosofia-inner .section-title { color: var(--dark); }
+    .filosofia-inner .divider { margin-inline: auto; }
     .filosofia-pillars {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -321,18 +321,19 @@
     }
     .pilar {
       padding: 40px 32px;
-      background: rgba(255,255,255,.2);
+      background: var(--bg);
       text-align: center;
+      border: 1px solid var(--line);
       transition: background .3s;
     }
-    .pilar:hover { background: rgba(255,255,255,.32); }
+    .pilar:hover { background: rgba(28,26,22,.04); }
     .pilar-icon { font-size: 1.8rem; margin-bottom: 16px; }
     .pilar h4 {
       font-family: var(--font-serif);
       font-size: 1.2rem; font-weight: 500;
-      color: #fff; margin-bottom: 10px;
+      color: var(--dark); margin-bottom: 10px;
     }
-    .pilar p { font-size: .88rem; color: rgba(255,255,255,.75); line-height: 1.6; }
+    .pilar p { font-size: .88rem; color: var(--muted); line-height: 1.6; }
 
     @media (max-width: 600px) {
       .filosofia-pillars { grid-template-columns: 1fr; }
@@ -579,7 +580,7 @@
         <p class="section-label fi">Nuestra filosofía</p>
         <h2 class="section-title fi d1">Cocina en homenaje<br />al territorio</h2>
         <div class="divider fi d1"></div>
-        <p class="fi d2" style="color:rgba(255,255,255,.8);font-family:var(--font-serif);font-style:italic;font-size:1.05rem;line-height:1.65;">
+        <p class="fi d2" style="color:var(--muted);font-family:var(--font-serif);font-style:italic;font-size:1.05rem;line-height:1.65;">
           Creemos que la mejor cocina es la que escucha al entorno. La que respeta el calendario, confía en el agricultor y pescador de proximidad, y aplica la técnica solo cuando suma, nunca cuando impone.
         </p>
 
